@@ -1,39 +1,11 @@
 pipeline {
     agent any
+
     stages {
-        stage('Install Packages') {
+        stage('hello world') {
             steps {
-                //
-                sh 'echo install packeges'
+                sh 'echo hello world'
             }
         }
-        stage('Build Docker Images') {
-            steps {
-                //
-                sh 'echo build image'
-            }
-         stage('Login to Dockerhub') {
-            steps {
-                //
-                sh 'echo login to dockerhub'
-            }
-        }
-         stage('Push to Dockerhub') {
-            steps {
-                //
-                sh 'echo push to dockerhub'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                //
-                sh 'echo deploy to prod'
-            }
-        }
-        post {
-            always {
-                sh 'echo logout'
-            }
-        }
-    } }
+    }
 }
