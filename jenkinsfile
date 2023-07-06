@@ -4,6 +4,7 @@ pipeline {
         stage('Install Packages') {
             steps {
                 //
+                sh 'echo install packeges'
             }
         }
         stage('Build Docker Images') {
