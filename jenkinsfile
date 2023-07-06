@@ -21,9 +21,6 @@ pipeline {
 
         stage('Build Docker Image') {
             // Restricting branch to 'deploy'
-            when {
-                branch 'deploy'
-            }
             steps {
                 script {
                     sh 'docker build -t francismensah/vite-react-app .'
@@ -32,10 +29,6 @@ pipeline {
         }
 
         stage('Login') {
-            // Restricting branch to 'deploy'
-            when {
-                branch 'deploy'
-            }
             steps {
                 script {
                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -44,10 +37,6 @@ pipeline {
         }
 
         stage('Push to Docker Hub') {
-            // Restricting branch to 'deploy'
-            when {
-                branch 'deploy'
-            }
             steps {
                 script {
                     sh 'docker push francismensah/vite-react-app'
